@@ -1,73 +1,101 @@
-# React + TypeScript + Vite
+<h1 align="center">🛒 TanStack Storefront Exercise</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<p align="center">
+A former sound designer turned front-end developer, I enjoy transforming ideas and UI mockups into elegant, responsive products.<br/>
+This project is a hands-on exploration of modern React architecture and the TanStack ecosystem.<br/>
+It focuses on building a polished ecommerce interface while experimenting with real-world data patterns and UX decisions.
+</p>
 
-Currently, two official plugins are available:
+<br/>
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🎯 Project Purpose
 
-## React Compiler
+This project was built as a learning sandbox to:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- explore **TanStack Query** in a real UI
+- practice scalable React architecture
+- implement realistic ecommerce UX patterns
+- experiment with caching, optimistic updates & offline persistence
+- refine UI polish & responsiveness
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## ✨ Key Features
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+✔ TanStack Query data fetching & caching  
+✔ Optimistic cart updates  
+✔ Offline cache persistence  
+✔ Product detail modal  
+✔ Responsive sidebar cart (mobile slide-in)  
+✔ Skeleton loading states  
+✔ Dark & light theme  
+✔ Clean & scalable component structure
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🧰 Tech Stack
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18-blue?logo=react&logoColor=white" />
+  <img src="https://img.shields.io/badge/TypeScript-255eb2?logo=typescript&logoColor=white" />
+  <img src="https://img.shields.io/badge/TanStack-Query-ff4154" />
+  <img src="https://img.shields.io/badge/styled--components-DB7093?logo=styledcomponents&logoColor=white" />
+  <img src="https://img.shields.io/badge/Vite-fast-purple?logo=vite&logoColor=white" />
+</p>
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### State Strategy
+
+- Server state → TanStack Query
+- UI state → React state
+- Cart state → local state with optimistic updates
+
+---
+
+## 🔄 Data Flow
+
+API → TanStack Query → custom hooks → UI components
+
+---
+
+## ⚡ Why TanStack Query?
+
+TanStack Query handles server state complexity by providing:
+
+- automatic caching & background refetching
+- stale data & request deduplication
+- optimistic updates support
+- offline persistence
+- improved UX with minimal code
+
+This keeps UI components simple and focused.
+
+---
+
+## 📸 Screenshot
+
+### Desktop
+
+<p align="center">
+  <img src="./public/screenshot_home.png" width="500"/>
+  <img src="./public/screenshot_cart.png" width="500"/>
+</p>
+
+### Mobile
+
+<p align="center">
+  <img src="./public/screenshot_mobile_home.png" width="300"/>
+  <img src="./public/screenshot_mobile_cart.png" width="300"/>
+</p>
+
+---
+
+## 🚀 Run Locally
+
+```bash
+git clone https://github.com/GutuGaluppo/tanstack-test.git
+cd tanstack-test
+npm install
+npm run dev
 ```

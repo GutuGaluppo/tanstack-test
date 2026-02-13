@@ -26,7 +26,7 @@ export const Panel = styled.div<{ $cartOpen?: boolean }>`
 `;
 
 export const Title = styled.h1`
-	font-size: 3.5rem;
+	font-size: clamp(1.5rem, 6vw, 4.5rem);
 	font-weight: 600;
 	color: #f5f5f5;
 	margin-bottom: 20px;
