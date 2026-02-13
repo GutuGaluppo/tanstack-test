@@ -40,12 +40,14 @@ export const Sidebar = styled.aside<{ $open?: boolean }>`
 
 	width: 320px;
 	height: fit-content;
+	max-height: 85vh;
+	overflow-y: auto;
 
 	background: rgba(20, 20, 20, 0.65);
 	backdrop-filter: blur(18px);
 	border-radius: 22px;
 	padding: 20px;
-	padding-top: 72px;
+	padding-top: 32px;
 	border: 1px solid rgba(255, 255, 255, 0.06);
 	box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
 	z-index: 1000;
@@ -66,7 +68,7 @@ export const CartToggleWrapper = styled.div`
 	justify-content: center;
 `;
 
-export const CartToggle = styled.button`
+export const CartToggle = styled.button<{ $open?: boolean }>`
 	position: fixed;
 	right: 40px;
 	top: 40px;
@@ -76,6 +78,8 @@ export const CartToggle = styled.button`
 	border: 3px solid #0c0c0c;
 	cursor: pointer;
 	font-size: 22px;
+
+	transition: transform 0.35s ease;
 
 	background: #bea98e;
 	color: #0c0c0c;
@@ -89,6 +93,8 @@ export const CartToggle = styled.button`
 	@media (max-width: 900px) {
 		right: 28px;
 		top: 28px;
+		transform: ${({ $open }) =>
+			$open ? "translate(4%, -10%) scale(0.8)" : "none"};
 	}
 `;
 

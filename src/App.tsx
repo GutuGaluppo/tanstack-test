@@ -67,6 +67,10 @@ export default function App() {
 		setCart((prev) => prev.filter((item) => item.id !== id));
 	}
 
+	function cleanCart() {
+		setCart([]);
+	}
+
 	if (isLoading) return <Page>Loading products…</Page>;
 	if (error) return <Page>Something went wrong.</Page>;
 
@@ -115,10 +119,14 @@ export default function App() {
 						incrementQuantity={incrementQuantity}
 						decrementQuantity={decrementQuantity}
 						removeFromCart={removeFromCart}
+						cleanCart={cleanCart}
 					/>
 				</Sidebar>
 
-				<CartToggle onClick={() => setCartOpen((cartOpen) => !cartOpen)}>
+				<CartToggle
+					$open={cartOpen}
+					onClick={() => setCartOpen((cartOpen) => !cartOpen)}
+				>
 					<img src={cartIcon} alt="Cart" width="60%" />
 					{cart.length > 0 && <CartCount>{handleTotalItems}</CartCount>}
 				</CartToggle>

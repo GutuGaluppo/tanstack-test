@@ -9,6 +9,7 @@ import {
 	QtyControls,
 	QtyButton,
 	RemoveButton,
+	ClearAllButton,
 } from "./styled";
 
 type Props = {
@@ -16,6 +17,7 @@ type Props = {
 	incrementQuantity: (id: number) => void;
 	decrementQuantity: (id: number) => void;
 	removeFromCart: (id: number) => void;
+	cleanCart: () => void;
 };
 
 export default function Cart({
@@ -23,11 +25,15 @@ export default function Cart({
 	incrementQuantity,
 	decrementQuantity,
 	removeFromCart,
+	cleanCart,
 }: Props) {
 	if (cart.length === 0) return <Empty>Cart is empty</Empty>;
 
 	return (
 		<ul style={{ padding: 0, listStyle: "none", margin: 0 }}>
+			<ClearAllButton onClick={cleanCart} style={{ marginBottom: 16 }}>
+				Clear Cart
+			</ClearAllButton>
 			{cart.map((item) => (
 				<CartItem key={item.id}>
 					<CartProduct>

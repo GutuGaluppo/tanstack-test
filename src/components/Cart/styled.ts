@@ -84,19 +84,6 @@ export const QtyButton = styled.button`
 	}
 `;
 
-export const RemoveButton1 = styled.button`
-	border: none;
-	background: transparent;
-	color: #777;
-	cursor: pointer;
-	font-size: 12px;
-	letter-spacing: 0.5px;
-
-	&:hover {
-		color: #bea98e;
-	}
-`;
-
 export const RemoveButton = styled.button`
 	position: absolute;
 	right: 0px;
@@ -117,4 +104,9 @@ export const RemoveButton = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: center;
+`;
+
+export const ClearAllButton = styled(QtyButton)`
+	width: auto;
+	padding: 0 12px;
 `;
