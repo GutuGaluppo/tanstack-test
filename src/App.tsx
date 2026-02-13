@@ -11,13 +11,19 @@ import {
 	Panel,
 	Sidebar,
 	Title,
+	PaginationWrapper,
+	PaginationButton,
+	PaginationLength,
 } from "./styled";
 import type { Product } from "./types";
 import cartIcon from "./assets/cart_icon.png";
 
 type CartItem = Product & { quantity: number };
 
+const PAGE_SIZE = 8;
+
 export default function App() {
+	const [page, setPage] = useState(0);
 	const { data: products, isLoading, error } = useProducts();
 	const [cart, setCart] = useState<CartItem[]>([]);
 	const [cartOpen, setCartOpen] = useState(false);
@@ -69,6 +75,11 @@ export default function App() {
 		0,
 	);
 
+	const paginatedProducts = products.slice(
+		page * PAGE_SIZE,
+		(page + 1) * PAGE_SIZE,
+	);
+
 	return (
 		<>
 			<Page>
@@ -78,11 +89,24 @@ export default function App() {
 					<Title>TanStack e-commerce</Title>
 					{products && (
 						<ProductList
-							products={products}
+							products={paginatedProducts}
 							addToCart={addToCart}
 							onSelect={setSelectedProduct}
 						/>
 					)}
+					<PaginationWrapper>
+						<PaginationButton
+							onClick={() => setPage((p) => Math.max(p - 1, 0))}
+						>
+							←
+						</PaginationButton>
+						<PaginationLength>
+							{page + 1} of {Math.ceil(products.length / PAGE_SIZE)}
+						</PaginationLength>
+						<PaginationButton onClick={() => setPage((p) => p + 1)}>
+							→
+						</PaginationButton>
+					</PaginationWrapper>
 				</Panel>
 
 				<Sidebar $open={cartOpen}>

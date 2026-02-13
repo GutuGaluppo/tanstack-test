@@ -92,6 +92,38 @@ export const CartToggle = styled.button`
 	}
 `;
 
+export const PaginationButton = styled.button`
+	border-radius: 50%;
+	border: 3px solid #0c0c0c;
+	cursor: pointer;
+	font-size: 22px;
+	background: transparent;
+	color: #bea98e;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+	z-index: 1100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`;
+
+export const PaginationWrapper = styled.div`
+	position: absolute;
+	bottom: 30px;
+	left: 50%;
+	transform: translateX(-50%);
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	margin-top: 20px;
+`;
+
+export const PaginationLength = styled.span`
+	font-size: 18px;
+	color: #f5f5f5;
+`;
+
 export const CartCount = styled.span`
 	position: absolute;
 	top: 10px;
